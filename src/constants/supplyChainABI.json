@@ -1,0 +1,446 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "imageIPFS",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "quantity",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+            }
+        ],
+        "name": "addProduct",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "FundsWithdrawn",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "productId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "quantity",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "addedBy",
+                "type": "address"
+            }
+        ],
+        "name": "ProductAdded",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "productId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "quantity",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "buyer",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "totalPrice",
+                "type": "uint256"
+            }
+        ],
+        "name": "ProductPurchased",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "productId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "quantity",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "enum SupplyChain.Status",
+                "name": "status",
+                "type": "uint8"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "updatedBy",
+                "type": "address"
+            }
+        ],
+        "name": "ProductUpdated",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "productId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "quantity",
+                "type": "uint256"
+            }
+        ],
+        "name": "purchaseProduct",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "productId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "buyer",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "enum SupplyChain.Status",
+                "name": "status",
+                "type": "uint8"
+            }
+        ],
+        "name": "PurchaseStatusUpdated",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "stateMutability": "payable",
+        "type": "fallback"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "productId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "enum SupplyChain.Status",
+                "name": "status",
+                "type": "uint8"
+            }
+        ],
+        "name": "updateProductAvailability",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "productId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "quantity",
+                "type": "uint256"
+            }
+        ],
+        "name": "updateProductQuantity",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "productId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "buyer",
+                "type": "address"
+            },
+            {
+                "internalType": "enum SupplyChain.Status",
+                "name": "status",
+                "type": "uint8"
+            }
+        ],
+        "name": "updatePurchaseStatus",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "withdrawFunds",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "stateMutability": "payable",
+        "type": "receive"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "productId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getProductBuyers",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "buyer",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "productId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getPurchasedDetails",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "enum SupplyChain.Status",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "latestProductId",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "products",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "imageIPFS",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "quantity",
+                "type": "uint256"
+            },
+            {
+                "internalType": "enum SupplyChain.Status",
+                "name": "status",
+                "type": "uint8"
+            },
+            {
+                "internalType": "bool",
+                "name": "exists",
+                "type": "bool"
+            },
+            {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "purchases",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "quantity",
+                "type": "uint256"
+            },
+            {
+                "internalType": "enum SupplyChain.Status",
+                "name": "status",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
